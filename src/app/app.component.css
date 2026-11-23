@@ -1,0 +1,42 @@
+body {
+    background: linear-gradient(to right, #c04848, #480048);
+    min-height: 100vh
+}
+
+.navbar{
+
+    backdrop-filter: blur(10px);
+
+}
+
+.nav-link{
+
+    color:white !important;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.nav-link:hover{
+
+    background:rgba(255,255,255,.15);
+
+    transform:translateY(-2px);
+
+}
+
+.nav-link.active{
+
+    background:#ffc107;
+
+    color:#212529 !important;
+
+}
+
+.btn-warning:hover{
+
+    transform:scale(1.05);
+
+}

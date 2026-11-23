@@ -1,0 +1,195 @@
+<!--<h1>{{title}}</h1>
+<button (click) = "enableBuying()">Enable/Disable Buying</button>
+<div *ngFor = "let product of products">  
+<h2>{{product.name}}</h2>
+<h2>{{product.price}}</h2>
+<h2>{{product.description}}</h2>
+
+<app-alert-details [product] = "product" [isUnchanged] = isUnchanged (notify) = "clickMe(product)"></app-alert-details>
+</div>-->
+
+<!-- Original -->
+
+<!-- <div class="container py-5">
+    <div class="row text-center text-white mb-5">
+        <div class="col-lg-7 mx-auto">
+            <h1 class="display-4">Product List</h1>
+        </div>
+    </div>
+
+    <button class="btn btn-primary" (click) = "enableBuying()">Enable/Disable Buying</button>
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+
+            <ul class="list-group shadow">
+
+                <div *ngFor = "let product of products">  
+                
+                <li class="list-group-item">
+                    
+                    <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                        <div class="media-body order-2 order-lg-1">
+                            <a [routerLink] = "['/products',product.id]" class="mt-0 font-weight-bold mb-2">{{product.name}}</a>
+                            <p class="font-italic text-muted mb-0 small">{{product.description}}</p>
+                            <div class="d-flex align-items-center justify-content-between mt-1">
+                                <h6 class="font-weight-bold my-2">{{product.price}}</h6>
+        
+                            </div>
+                        </div><img src={{product.imgaddress}} alt="Generic placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2">
+                    </div> 
+                    <app-alert-details [product] = "product" [isUnchanged] = isUnchanged (notify) = "clickMe(product)"></app-alert-details>
+
+                </li> 
+            </div>
+            </ul> 
+        </div>
+    </div>
+</div> -->
+
+<div class="container py-5">
+
+    <div class="row justify-content-center mb-4">
+
+        <div class="col-lg-8 text-center">
+
+            <h1 class="display-5 fw-bold text-info mb-2" style="margin-top: -50px;">
+                Product List
+            </h1>
+
+            <p class="text-muted">
+                Explore our latest software courses and learning resources.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="text-center mb-4">
+
+        <button class="btn btn-info btn-lg rounded-pill shadow px-4"
+                (click)="enableBuying()" style="margin-top: -33px;">
+
+            <i class="bi bi-cart-check-fill me-2"></i>
+
+            Enable/Disable Buying
+
+        </button>
+
+    </div>
+
+    <div class="row justify-content-center">
+
+    <div class="col-lg-11">
+
+        <div *ngFor="let product of products" class="mb-4">
+
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+
+                <div class="card-body p-4">
+
+                    <div class="row align-items-center">
+
+                        <!-- Product Image -->
+
+                        <div class="col-lg-3 text-center mb-3 mb-lg-0">
+
+                            <img src="{{product.imgaddress}}"
+                                 alt="Product Image"
+                                 class="img-fluid rounded-4 border border-2 shadow-sm p-2 bg-light"
+                                 style="max-height:180px; object-fit:contain;">
+
+                        </div>
+
+                        <!-- Product Details -->
+
+                        <div class="col-lg-9">
+
+                            <div class="d-flex justify-content-between align-items-start flex-wrap">
+
+                                <div>
+
+                                    <a [routerLink]="['/products', product.id]"
+                                       class="h3 fw-bold text-success text-decoration-none">
+
+                                        {{product.name}}
+
+                                    </a>
+
+                                    <span class="badge bg-primary ms-2 rounded-pill">
+                                        Popular
+                                    </span>
+
+                                </div>
+
+                                <span class="badge bg-warning text-dark fs-6 px-3 py-2 rounded-pill shadow-sm">
+
+    <i class="bi bi-cash-coin me-1"></i>
+
+    ₹ {{product.price}}
+
+</span>
+
+                            </div>
+
+                            <hr class="my-3">
+
+                            <p class="text-secondary fs-6 lh-lg mb-3">
+
+                                {{product.description}}
+
+                            </p>
+
+                            <div class="d-flex align-items-center justify-content-between flex-wrap">
+
+                                <div>
+
+                                    <span class="badge bg-light text-success border px-3 py-2 me-2">
+
+                                        <i class="bi bi-patch-check-fill me-1"></i>
+
+                                        Premium Course
+
+                                    </span>
+
+                                    <span class="badge bg-light text-primary border px-3 py-2">
+
+                                        <i class="bi bi-award-fill me-1"></i>
+
+                                        Best Seller
+
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="mt-4">
+
+                                <app-alert-details
+                                    [product]="product"
+                                    [isUnchanged]="isUnchanged"
+                                    (notify)="clickMe(product)">
+                                </app-alert-details>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+
+
+

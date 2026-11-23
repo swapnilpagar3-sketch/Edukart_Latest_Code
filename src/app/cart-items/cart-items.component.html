@@ -1,0 +1,381 @@
+<!-- Original -->
+
+<!-- <div class = "my-container">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Total</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let product of products">
+                        <td class="col-sm-8 col-md-6">
+                        <div class="media">
+                            <a class="thumbnail pull-left" href="#"> <img class="media-object" src={{product.imgaddress}} style="width: 72px; height: 72px;"> </a>
+                            <div class="media-body">
+                                <h4 class="media-heading"><a href="#">{{product.name}}</a></h4>
+                                <span>Status: </span><span class="text-success"><strong>{{product.status}}</strong></span>
+                            </div>
+                        </div></td>
+                        <td class="col-sm-1 col-md-1" style="text-align: center">
+                        <input #quantity (keyup)= "onKey(product,quantity.value)" type="email" class="form-control" id="exampleInputEmail1" value="1">
+                        </td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>{{product.price}}</strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>{{product.price * quantity.value}}</strong></td>
+                        <td class="col-sm-1 col-md-1">
+                        <button type="button"  (click) = "deleteProduct(product)" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove"></span> Remove
+                        </button></td>
+                    </tr>
+                  
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h5>Subtotal</h5></td>
+                        <td class="text-right"><h5><strong>{{sum}}</strong></h5></td>
+                    </tr>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h5>Estimated shipping</h5></td>
+                        <td class="text-right"><h5><strong>{{shippingPrice}}</strong></h5></td>
+                    </tr>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h3>Total</h3></td>
+                        <td class="text-right mint"><h3><strong>{{totalPrice}}</strong></h3></td>
+                    </tr>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>
+                        <button type="button" routerLink = "/products" class="btn btn-default">
+                            <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
+                        </button></td>
+                        <td>
+                        <button type="button" routerLink = "/checkout" class="btn btn-success">
+                            Checkout <span class="glyphicon glyphicon-play"></span>
+                        </button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div> -->
+
+<div class="my-container py-5 bg-light">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-11">
+
+                <div class="card border-0 shadow-lg rounded-4">
+
+                    <!-- Header -->
+
+                    <div class="card-header bg-info text-white py-4 rounded-top-4">
+
+                        <div class="d-flex justify-content-between align-items-center">
+
+                            <h3 class="mb-0 fw-bold">
+                                <i class="bi bi-cart3 me-2"></i>
+                                Shopping Cart
+                            </h3>
+
+                            <span class="badge bg-warning text-dark fs-6 px-3 py-2 rounded-pill">
+
+                                {{products.length}} Items
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Table -->
+
+                    <div class="card-body p-0">
+
+                        <div class="table-responsive">
+
+                            <table class="table table-hover align-middle mb-0">
+
+                                <thead class="table-light">
+
+                                    <tr class="text-center">
+
+                                        <th class="text-start ps-4 fw-bold text-secondary">
+                                            Product
+                                        </th>
+
+                                        <th class="fw-bold text-secondary">
+                                            Quantity
+                                        </th>
+
+                                        <th class="fw-bold text-secondary">
+                                            Price
+                                        </th>
+
+                                        <th class="fw-bold text-secondary">
+                                            Total
+                                        </th>
+
+                                        <th class="fw-bold text-secondary">
+                                            Action
+                                        </th>
+
+                                    </tr>
+
+                                </thead>
+
+                                <tbody>
+
+                                    <tr *ngFor="let product of products">
+
+                                        <!-- Product -->
+
+                                        <td class="ps-4">
+
+                                            <div class="d-flex align-items-center">
+
+                                                <img src="{{product.imgaddress}}"
+                                                     class="rounded-3 shadow-sm border bg-white p-2 me-3"
+                                                     width="85"
+                                                     height="85">
+
+                                                <div style="margin-left: 10px;">
+
+                                                    <h5 class="mb-2 fw-bold">
+
+                                                        <a href="#"
+                                                           class="text-dark text-decoration-none">
+
+                                                            {{product.name}}
+
+                                                        </a>
+
+                                                    </h5>
+
+                                                    <span class="text-muted">
+
+                                                        Status
+
+                                                    </span>
+
+                                                    <span class="badge bg-success rounded-pill ms-2">
+
+                                                        {{product.status}}
+
+                                                    </span>
+
+                                                </div>
+
+                                            </div>
+
+                                        </td>
+
+                                        <!-- Quantity -->
+
+                                        <td class="text-center">
+
+                                            <input
+                                                #quantity
+                                                (keyup)="onKey(product,quantity.value)"
+                                                type="number"
+                                                class="form-control rounded-pill text-center mx-auto shadow-sm"
+                                                style="width:90px;"
+                                                value="1">
+
+                                        </td>
+
+                                        <!-- Price -->
+
+                                        <td class="text-center">
+
+                                            <span class="badge bg-primary fs-6 px-3 py-2 rounded-pill">
+
+                                                ₹ {{product.price}}
+
+                                            </span>
+
+                                        </td>
+
+                                        <!-- Total -->
+
+                                        <td class="text-center">
+
+                                            <span class="badge bg-warning text-dark fs-6 px-3 py-2 rounded-pill shadow-sm">
+
+                                                ₹ {{product.price * quantity.value}}
+
+                                            </span>
+
+                                        </td>
+
+                                        <!-- Remove -->
+
+                                        <td class="text-center">
+
+                                            <button
+                                                type="button"
+                                                (click)="deleteProduct(product)"
+                                                class="btn btn-danger rounded-pill px-3">
+
+                                                <i class="bi bi-trash3-fill me-2"></i>
+
+                                                Remove
+
+                                            </button>
+
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Footer -->
+
+                    <div class="card-footer bg-white py-4">
+
+                        <div class="row align-items-center">
+
+                            <!-- <div class="col-lg-7 mb-3 mb-lg-0">
+
+                                <button
+                                    type="button"
+                                    routerLink="/products"
+                                    class="btn btn-outline-primary rounded-pill px-4 shadow-sm">
+
+                                    <i class="bi bi-arrow-left-circle me-2"></i>
+
+                                    Continue Shopping
+
+                                </button>
+
+                            </div> -->
+
+                            <div class="col-lg-5" style="margin-left: 560px;">
+
+                                <div class="card border-success shadow-sm rounded-4">
+
+                                    <div class="card-body">
+
+                                        <div class="d-flex justify-content-between mb-2">
+
+                                            <span class="fw-semibold">
+
+                                                Subtotal
+
+                                            </span>
+
+                                            <span>
+
+                                                ₹ {{sum}}
+
+                                            </span>
+
+                                        </div>
+
+                                        <div class="d-flex justify-content-between mb-2">
+
+                                            <span class="fw-semibold">
+
+                                                Estimated Shipping
+
+                                            </span>
+
+                                            <span>
+
+                                                ₹ {{shippingPrice}}
+
+                                            </span>
+
+                                        </div>
+
+                                        <hr>
+
+                                        <div class="d-flex justify-content-between align-items-center">
+
+                                            <h5 class="fw-bold mb-0">
+
+                                                Total
+
+                                            </h5>
+
+                                            <span class="badge bg-info fs-5 px-4 py-3 rounded-pill">
+
+                                                ₹ {{totalPrice}}
+
+                                            </span>
+
+                                        </div>
+
+                                        <div class="d-grid mt-4">
+
+                                            <button
+                                                type="button"
+                                                routerLink="/checkout"
+                                                class="btn btn-success btn-lg rounded-pill shadow">
+
+                                                <i class="bi bi-credit-card-fill me-2"></i>
+
+                                                Checkout
+
+                                            </button>
+
+                                            <button
+                                                type="button"
+                                                routerLink="/products"
+                                                style="margin-left: 10px;"
+                                                class="btn btn-primary btn-lg rounded-pill shadow">
+
+                                                <i class="bi bi-credit-card-fill me-2"></i>
+
+                                                Continue Shopping
+
+                                            </button>
+
+                                        </div>
+
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
